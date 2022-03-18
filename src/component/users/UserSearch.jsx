@@ -33,7 +33,7 @@ function UserSearch() {
               <input
                 type="text"
                 className="w-full pr-40 bg-gray-200 input input-lg text-black"
-                placeholder="Serach"
+                placeholder="Serach for a GitHub user..."
                 value={text}
                 onChange={handleChange}
               />
@@ -41,7 +41,7 @@ function UserSearch() {
                 type="submit"
                 className="absolute top-0 right-0 rounded-l-none w-36 btn btn-lg"
               >
-                Go
+                Select
               </button>
             </div>
           </div>
@@ -53,7 +53,7 @@ function UserSearch() {
             onClick={() => dispatch({ type: "CLEAR_USERS" })}
             className="btn btn-ghost btn-lg"
           >
-            Clear your choice
+            Clear
           </button>
         </div>
       )}

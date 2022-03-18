@@ -9,9 +9,9 @@ function About() {
         Version <span className="text-dark">1.0.0</span>
       </p>
       <p className="text-lg text-gray-400">
-        Layout By:
-        <a className="text-dark" href="https://twitter.com/hassibmoddasser">
-          Hassib Moddasser
+        By:{' '}
+        <a className="text-dark" href="https://github.com/joshwilensky">
+          Josh Wilensky
         </a>
       </p>
     </>

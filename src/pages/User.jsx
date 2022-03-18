@@ -1,4 +1,15 @@
-import { FaCodepen, FaStore, FaUserFriends, FaUsers } from "react-icons/fa";
+import {
+  FaCodepen,
+  FaStore,
+  FaUserFriends,
+  FaUsers,
+  FaArrowLeft,
+  FaGithub,
+  FaMapMarkerAlt,
+  FaGlobeAmericas,
+  FaTwitter,
+} from "react-icons/fa";
+import NumberFormat from "react-number-format";
 import { useEffect, useContext } from "react";
 import { useParams, Link } from "react-router-dom";
 import Spinner from "../component/layout/Spinner";
@@ -55,7 +66,8 @@ function User() {
       <div className="w-full mx-auto lg:w-10/12">
         <div className="mb-4">
           <Link to="/" className="btn btn-ghost">
-            Back To Search
+            <FaArrowLeft />
+            <p class="ml-2">Back To Search</p>
           </Link>
         </div>
 
@@ -89,7 +101,8 @@ function User() {
                   rel="noreferrer"
                   className="btn btn-outline"
                 >
-                  Visit Github Profile
+                  <FaGithub className="inline pr-2 text-3xl" />
+                  Github Profile
                 </a>
               </div>
             </div>
@@ -98,7 +111,16 @@ function User() {
               {location && (
                 <div className="stat">
                   <div className="stat-title text-md">Location</div>
-                  <div className="text-lg stat-value">{location}</div>
+                  <div className="text-lg stat-value">
+                    <FaMapMarkerAlt className="inline pr-2 text-2xl" />
+                    <a
+                      href={`https://www.google.com/maps/place/${location}`}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {location}
+                    </a>
+                  </div>
                 </div>
               )}
               {blog && (
@@ -106,6 +128,7 @@ function User() {
                   <div className="stat-title text-md">Website</div>
                   <div className="text-lg stat-value">
                     <a href={websiteUrl} target="_blank" rel="noreferrer">
+                      <FaGlobeAmericas className="inline pr-2 text-2xl" />
                       {websiteUrl}
                     </a>
                   </div>
@@ -130,46 +153,60 @@ function User() {
         </div>
 
         <div className="w-full py-5 mb-6 rounded-lg shadow-md bg-base-100 stats">
-          <div className="grid grid-cols-1 md:grid-cols-3">
-            <div className="stat">
-              <div className="stat-figure text-secondary">
-                <FaUsers className="text-3xl md:text-5xl" />
-              </div>
-              <div className="stat-title pr-5">Followers</div>
-              <div className="stat-value pr-5 text-3xl md:text-4xl">
-                {followers}
-              </div>
+          <div className="stat">
+            <div className="stat-figure text-secondary">
+              <FaUsers className="text-3xl md:text-5xl" />
             </div>
+            <div className="stat-title pr-5">Followers</div>
+            <NumberFormat
+              className="stat-value pr-5 text-3xl md:text-4xl"
+              thousandSeparator={true}
+              displayType="text"
+              type="text"
+              value={followers}
+            />
+          </div>
 
-            <div className="stat">
-              <div className="stat-figure text-secondary">
-                <FaUserFriends className="text-3xl md:text-5xl" />
-              </div>
-              <div className="stat-title pr-5">Following</div>
-              <div className="stat-value pr-5 text-3xl md:text-4xl">
-                {following}
-              </div>
+          <div className="stat">
+            <div className="stat-figure text-secondary">
+              <FaUserFriends className="text-3xl md:text-5xl" />
             </div>
+            <div className="stat-title pr-5">Following</div>
+            <NumberFormat
+              className="stat-value pr-5 text-3xl md:text-4xl"
+              thousandSeparator={true}
+              displayType="text"
+              type="text"
+              value={following}
+            />
+          </div>
 
-            <div className="stat">
-              <div className="stat-figure text-secondary">
-                <FaCodepen className="text-3xl md:text-5xl" />
-              </div>
-              <div className="stat-title pr-5">Public Repos</div>
-              <div className="stat-value pr-5 text-3xl md:text-4xl">
-                {public_repos}
-              </div>
+          <div className="stat">
+            <div className="stat-figure text-secondary">
+              <FaCodepen className="text-3xl md:text-5xl" />
             </div>
+            <div className="stat-title pr-5">Public Repos</div>
+            <NumberFormat
+              className="stat-value pr-5 text-3xl md:text-4xl"
+              thousandSeparator={true}
+              displayType="text"
+              type="text"
+              value={public_repos}
+            />
+          </div>
 
-            <div className="stat">
-              <div className="stat-figure text-secondary">
-                <FaStore className="text-3xl md:text-5xl" />
-              </div>
-              <div className="stat-title pr-5">Public Gists</div>
-              <div className="stat-value pr-5 text-3xl md:text-4xl">
-                {public_gists}
-              </div>
+          <div className="stat">
+            <div className="stat-figure text-secondary">
+              <FaStore className="text-3xl md:text-5xl" />
             </div>
+            <div className="stat-title pr-5">Public Gists</div>
+            <NumberFormat
+              className="stat-value pr-5 text-3xl md:text-4xl"
+              thousandSeparator={true}
+              displayType="text"
+              type="text"
+              value={public_gists}
+            />
           </div>
         </div>
 
