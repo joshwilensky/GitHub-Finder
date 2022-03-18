@@ -6,7 +6,7 @@ import { searchUsers } from "../../context/github/GithubActions";
 function UserSearch() {
   const [text, setText] = useState("");
 
-  const { users, dispatch } = useContext(GithubContext);
+  const { users, dispatch, clearUsers } = useContext(GithubContext);
   const { setAlert } = useContext(AlertContext);
 
   const handleChange = (e) => setText(e.target.value);
@@ -20,7 +20,6 @@ function UserSearch() {
       dispatch({ type: "SET_LOADING" });
       const users = await searchUsers(text);
       dispatch({ type: "GET_USERS", payload: users });
-
       setText("");
     }
   };
@@ -34,7 +33,7 @@ function UserSearch() {
               <input
                 type="text"
                 className="w-full pr-40 bg-gray-200 input input-lg text-black"
-                placeholder="Search"
+                placeholder="Serach"
                 value={text}
                 onChange={handleChange}
               />
