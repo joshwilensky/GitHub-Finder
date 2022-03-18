@@ -73,7 +73,7 @@ function User() {
 
         <div className="grid grid-cols-1 xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-3 mb-8 md:gap-8">
           <div className="custom-card-image mb-6 md:mb-0">
-            <div className="rounded-lg shadow-xl card image-full">
+            <div className="rounded-lg shadow-xl card">
               <figure>
                 <img src={avatar_url} alt="" />
               </figure>
@@ -93,6 +93,9 @@ function User() {
                   <div className="mx-1 badge badge-info">Hireable</div>
                 )}
               </h1>
+              <p>
+                GitHub username: <b>{login}</b>
+              </p>
               <p>{bio}</p>
               <div className="mt-4 card-actions">
                 <a
